@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    text-align: center;
+    background-color: #4caf50;
+    color: white;
+    padding: 20px 0;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h2 {
+    color: #4caf50;
+  }
+  
+  .form-step {
+    margin-bottom: 20px;
+  }
+  
+  .form-step label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .form-step input,
+  .form-step select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    display: inline-block;
+    background: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background: #45a049;
+  }
+  
+  #results {
+    padding: 20px;
+    background: #e0f7fa;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #4caf50;
+    color: white;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    main {
+      padding: 15px;
+    }
+    button {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  }
+  /* Fade In Animation for Steps */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.form-step {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Button Hover Animation */
+button {
+  transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #45a049;
+  transform: scale(1.05);
+}
+
+/* Input Focus Animation */
+input, select {
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input:focus, select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+/* Smooth Transition Between Form Steps */
+.form-step {
+  transition: transform 0.5s ease-in-out;
+}
+/* Animating on scroll */
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-animation.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#results {
+  animation: slideUp 0.7s ease-in-out forwards;
+  display: none;  /* Hide initially */
+}
+
+#results.visible {
+  display: block;
+}

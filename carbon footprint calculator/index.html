@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Footprint Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Carbon Footprint Tracker</h1>
+    <p>Estimate your carbon footprint based on your daily activities</p>
+  </header>
+
+  <main>
+    <form id="carbon-form">
+      <!-- Step 1: Transportation -->
+      <div class="form-step" id="step-1">
+        <h2>Transportation</h2>
+        <label for="transport-mode">How do you usually travel?</label>
+        <select id="transport-mode">
+          <option value="car">Car</option>
+          <option value="bus">Bus</option>
+          <option value="train">Train</option>
+          <option value="plane">Plane</option>
+          <option value="bike">Bike/Walk</option>
+        </select>
+        
+        <label for="transport-distance">How far do you travel in a week (in km)?</label>
+        <input type="number" id="transport-distance" required>
+        
+        <button type="button" onclick="nextStep(2)">Next</button>
+      </div>
+
+      <!-- Step 2: Housing -->
+      <div class="form-step" id="step-2" style="display:none;">
+        <h2>Housing</h2>
+        <label for="electricity">How many rooms do you have?</label>
+        <input type="number" id="electricity" required>
+        
+        <label for="heating">Do you use air conditioning or heating?</label>
+        <select id="heating">
+          <option value="none">None</option>
+          <option value="electric">Electric</option>
+          <option value="gas">Gas</option>
+        </select>
+        
+        <button type="button" onclick="nextStep(3)">Next</button>
+      </div>
+
+      <!-- Step 3: Food -->
+      <div class="form-step" id="step-3" style="display:none;">
+        <h2>Food Consumption</h2>
+        <label for="diet">Which best describes your diet?</label>
+        <select id="diet">
+          <option value="meat-heavy">Meat-heavy</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+        </select>
+
+        <label for="food-waste">How often do you waste food?</label>
+        <select id="food-waste">
+          <option value="rarely">Rarely</option>
+          <option value="occasionally">Occasionally</option>
+          <option value="frequently">Frequently</option>
+        </select>
+        
+        <button type="button" onclick="nextStep(4)">Next</button>
+      </div>
+
+      <!-- Step 4: Waste & Recycling -->
+      <div class="form-step" id="step-4" style="display:none;">
+        <h2>Waste & Recycling</h2>
+        <label for="waste">How many garbage bags do you fill per week?</label>
+        <input type="number" id="waste">
+        
+        <label for="recycling">How often do you recycle items like plastic, paper, or glass?</label>
+        <select id="recycling">
+          <option value="never">Never</option>
+          <option value="occasionally">Occasionally</option>
+          <option value="regularly">Regularly</option>
+          <option value="always">Always</option>
+        </select>
+        
+        <button type="button" onclick="calculateFootprint()">Calculate</button>
+      </div>
+    </form>
+
+    <div id="results" style="display:none;">
+      <h2>Your Carbon Footprint</h2>
+      <p id="footprint-result"></p>
+      <p><b>Suggestions to Reduce Your Footprint:</b></p>
+      <ul id="suggestions"></ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Carbon Footprint Tracker</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
